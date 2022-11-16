@@ -1,16 +1,8 @@
 import React from "react";
-import { decode } from "blurhash";
+import { Blurhash } from "react-blurhash";
+import { IRestaurant } from "../../../types";
 
-interface Props {
-  blurhash: string;
-  launch_date: string;
-  location: [number];
-  name: string;
-  online: boolean;
-  popularity: number;
-}
-
-const RestaurantCard: React.FC<Props> = ({
+const RestaurantCard: React.FC<IRestaurant> = ({
   blurhash,
   launch_date,
   location,
@@ -18,9 +10,20 @@ const RestaurantCard: React.FC<Props> = ({
   online,
   popularity,
 }) => {
-  const pixels = decode("LEHV6nWB2yk8pyo0adR*.7kCMdnj", 32, 32);
-
-  return <div></div>;
+  return (
+    <div>
+      <Blurhash
+        hash={blurhash}
+        width={300}
+        height={300}
+        resolutionX={32}
+        resolutionY={32}
+        punch={1}
+      />
+      <p>{name}</p>
+      <p>{online ? "has delivery" : "only on site"}</p>
+    </div>
+  );
 };
 
 export default RestaurantCard;
