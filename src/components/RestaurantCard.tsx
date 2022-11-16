@@ -4,7 +4,7 @@ interface Props {
     blurhash: string, launch_date: string, location: [number], name: string, online: boolean, popularity: number
 }
 
-const RestaurantPage:React.FC<Props> = ({blurhash, launch_date, location, name, online, popularity}) => {
+const RestaurantCard:React.FC<Props> = ({blurhash, launch_date, location, name, online, popularity}) => {
     return (
         <div>
             
@@ -12,4 +12,4 @@ const RestaurantPage:React.FC<Props> = ({blurhash, launch_date, location, name, 
     );
 };
 
-export default RestaurantPage;
+export default RestaurantCard;
