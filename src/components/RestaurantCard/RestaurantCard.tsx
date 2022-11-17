@@ -14,8 +14,8 @@ const RestaurantCard: React.FC<IRestaurant> = ({
     <div>
       <Blurhash
         hash={blurhash}
-        width={300}
-        height={300}
+        width={480}
+        height={270}
         resolutionX={32}
         resolutionY={32}
         punch={1}

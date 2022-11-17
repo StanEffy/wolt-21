@@ -6,3 +6,8 @@ export interface IRestaurant {
   online: boolean;
   popularity: number;
 }
+
+export interface IRestaurantsArray {
+  title: string;
+  restaurants: IRestaurant[];
+}

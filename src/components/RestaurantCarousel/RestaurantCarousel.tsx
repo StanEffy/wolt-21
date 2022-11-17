@@ -1,11 +1,6 @@
 import React from "react";
 import RestaurantCard from "../RestaurantCard/RestaurantCard";
-import { IRestaurant } from "../../../types";
-
-interface IRestaurantsArray {
-  title: string;
-  restaurants: IRestaurant[];
-}
+import { IRestaurantsArray } from "../../../types";
 
 const restaurants: IRestaurantsArray[] = [
   {
@@ -193,7 +188,7 @@ const restaurants: IRestaurantsArray[] = [
   },
 ];
 
-const RestaurantCarousel = () => {
+const RestaurantCarousel: React.FC<IRestaurantsArray> = ({ restaurants }) => {
   return restaurants[0].restaurants.map((r) => (
     <RestaurantCard
       blurhash={r.blurhash}
