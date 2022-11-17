@@ -1,6 +1,7 @@
 import React from "react";
 import RestaurantCarousel from "./components/RestaurantCarousel/RestaurantCarousel";
 import { IRestaurantsArray } from "../types";
+import RestaurantCarouselCover from "./components/RestaurantCarousel/RestaurantCarouselCover";
 
 const restaurants: IRestaurantsArray[] = [
   {
@@ -192,6 +193,9 @@ function App() {
   return (
     <div className="App">
       <p>Initial screen</p>
+      {restaurants.map((r) => (
+        <RestaurantCarouselCover title={r.title} restaurants={r.restaurants} />
+      ))}
     </div>
   );
 }

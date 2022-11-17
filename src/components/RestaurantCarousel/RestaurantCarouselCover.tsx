@@ -1,9 +1,9 @@
 import React from "react";
-import styled from "styled-components";
 import RestaurantCarousel from "./RestaurantCarousel";
 import { IRestaurantsArray } from "../../../types";
+import styled from "styled-components";
 
-const CarouselHeader = styled(h1)`
+const CarouselHeader = styled.h1`
   font-size: 2rem;
 `;
 
@@ -13,8 +13,8 @@ const RestaurantCarouselCover: React.FC<IRestaurantsArray> = ({
 }) => {
   return (
     <section>
-      <CarouselHeader></CarouselHeader>
-      <RestaurantCarousel restaurants={} />
+      <CarouselHeader>{title}</CarouselHeader>
+      <RestaurantCarousel restaurants={restaurants} />
     </section>
   );
 };
