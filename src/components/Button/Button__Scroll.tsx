@@ -37,9 +37,20 @@ const ArrowLeft = styled(Arrow)`
   transform: rotate(-135deg);
 `;
 
-const ButtonScroll = ({ direction }: { direction: "left" | "right" }) => {
+const ButtonScroll = ({
+  direction,
+  visibility = true,
+}: {
+  direction: "left" | "right";
+  visibility: boolean;
+}) => {
   return (
-    <ButtonBlock style={{ right: direction === "right" ? 0 : "none" }}>
+    <ButtonBlock
+      style={{
+        right: direction === "right" ? 0 : "none",
+        display: visibility ? "flex" : "none",
+      }}
+    >
       {direction === "left" ? <ArrowLeft /> : <ArrowRight />}
     </ButtonBlock>
   );

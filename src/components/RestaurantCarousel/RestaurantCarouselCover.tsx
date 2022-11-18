@@ -23,9 +23,9 @@ const RestaurantCarouselCover: React.FC<IRestaurantsArray> = ({
     <section>
       <CarouselHeader>{title}</CarouselHeader>
       <CarouselCover>
-        <ButtonScroll direction={"left"} />
+        <ButtonScroll direction={"left"} visibility={true} />
         <RestaurantCarousel restaurants={restaurants} />
-        <ButtonScroll direction={"right"} />
+        <ButtonScroll direction={"right"} visibility={true} />
       </CarouselCover>
     </section>
   );
