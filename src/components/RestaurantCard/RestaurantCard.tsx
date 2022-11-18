@@ -59,7 +59,7 @@ const RestaurantCard: React.FC<IRestaurant> = ({
         punch={1}
       />
       <p>{name}</p>
-      <p>{online ? "has delivery" : "only on site"}</p>
+      <p>{online ? "online" : "offline"}</p>
     </Card>
   );
 };

@@ -47,7 +47,8 @@ const ButtonScroll = ({
   return (
     <ButtonBlock
       style={{
-        right: direction === "right" ? 0 : "none",
+        right: direction === "right" ? 0 : "auto",
+        left: direction === "left" ? 0 : "auto",
         display: visibility ? "flex" : "none",
       }}
     >

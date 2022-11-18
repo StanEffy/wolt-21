@@ -13,6 +13,9 @@ const CarouselCover = styled.div`
   position: relative;
   max-width: 100%;
   box-sizing: border-box;
+  gap: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
 `;
 
 const RestaurantCarouselCover: React.FC<IRestaurantsArray> = ({
