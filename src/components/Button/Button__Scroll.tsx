@@ -9,22 +9,38 @@ const ButtonBlock = styled.button`
   align-items: center;
   width: 30px;
   height: 100%;
+  background-color: rgba(33, 98, 120, 0.2);
+  z-index: 1;
+
+  &:hover {
+    background-color: rgba(33, 98, 120, 0.35);
+  }
 `;
 
 const Arrow = styled.div`
   display: block;
+  position: relative;
+  left: 5px;
   width: 15px;
   height: 15px;
-  border: 2px solid ${(props) => props.theme.colors.primary};
+  border: 3px solid ${(props) => props.theme.colors.primary};
   border-bottom: none;
   border-left: none;
-  transform: rotate(45deg);
 `;
 
-const ButtonScroll = () => {
+const ArrowRight = styled(Arrow)`
+  transform: rotate(45deg);
+  left: -5px;
+`;
+
+const ArrowLeft = styled(Arrow)`
+  transform: rotate(-135deg);
+`;
+
+const ButtonScroll = ({ direction }: { direction: "left" | "right" }) => {
   return (
-    <ButtonBlock>
-      <Arrow />
+    <ButtonBlock style={{ right: direction === "right" ? 0 : "none" }}>
+      {direction === "left" ? <ArrowLeft /> : <ArrowRight />}
     </ButtonBlock>
   );
 };
