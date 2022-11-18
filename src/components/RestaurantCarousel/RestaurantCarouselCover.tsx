@@ -6,6 +6,12 @@ import styled from "styled-components";
 const CarouselHeader = styled.h1`
   font-size: 2rem;
 `;
+const CarouselCover = styled.div`
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+  box-sizing: border-box;
+`;
 
 const RestaurantCarouselCover: React.FC<IRestaurantsArray> = ({
   title,
@@ -14,7 +20,9 @@ const RestaurantCarouselCover: React.FC<IRestaurantsArray> = ({
   return (
     <section>
       <CarouselHeader>{title}</CarouselHeader>
-      <RestaurantCarousel restaurants={restaurants} />
+      <CarouselCover>
+        <RestaurantCarousel restaurants={restaurants} />
+      </CarouselCover>
     </section>
   );
 };

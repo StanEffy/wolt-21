@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import RestaurantCard from "../RestaurantCard/RestaurantCard";
 import { IRestaurant } from "../../../types";
 
@@ -7,6 +7,9 @@ const RestaurantCarousel = ({
 }: {
   restaurants: IRestaurant[];
 }) => {
+  const [maxSlides, setMaxSlides] = useState(1);
+  const [activeSlide, setActiveSlide] = useState(1);
+
   return (
     <>
       {restaurants.map((r) => (

@@ -1,6 +1,12 @@
 import React from "react";
 import { Blurhash } from "react-blurhash";
 import { IRestaurant } from "../../../types";
+import styled from "styled-components";
+
+const Card = styled.div`
+  max-width: ${(props) => props.theme.tabletScreen};
+  border: 1px solid ${(props) => props.theme.colors.primary};
+`;
 
 const RestaurantCard: React.FC<IRestaurant> = ({
   blurhash,
@@ -11,7 +17,7 @@ const RestaurantCard: React.FC<IRestaurant> = ({
   popularity,
 }) => {
   return (
-    <div>
+    <Card>
       <Blurhash
         hash={blurhash}
         width={480}
@@ -22,7 +28,7 @@ const RestaurantCard: React.FC<IRestaurant> = ({
       />
       <p>{name}</p>
       <p>{online ? "has delivery" : "only on site"}</p>
-    </div>
+    </Card>
   );
 };
 
