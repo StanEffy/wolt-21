@@ -4,6 +4,11 @@ import { IRestaurant } from "../../../types";
 import styled from "styled-components";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
+type Props = {
+  restaurant: IRestaurant;
+  width: number;
+};
+
 const Card = styled.div`
   max-width: ${(props) => props.theme.tabletScreen};
   border: 1px solid ${(props) => props.theme.colors.primary};
@@ -13,15 +18,10 @@ const Card = styled.div`
   }
 `;
 
-const RestaurantCard: React.FC<IRestaurant> = ({
-  blurhash,
-  launch_date,
-  location,
-  name,
-  online,
-  popularity,
-}) => {
-  const { width } = useWindowDimensions();
+const RestaurantCard: React.FC<Props> = ({ restaurant, width }) => {
+  const { blurhash, launch_date, location, name, online, popularity } =
+    restaurant;
+
   const [size, setSize] = useState(210);
 
   useEffect(() => {
