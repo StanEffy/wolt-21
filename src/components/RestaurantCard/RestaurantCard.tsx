@@ -11,14 +11,29 @@ type Props = {
 
 const Card = styled.div`
   max-width: ${(props) => props.theme.tabletScreen};
-  border: 1px solid ${(props) => props.theme.colors.primary};
-
+  box-shadow: 1px 1px 11px 1px rgba(191, 121, 48, 0.15);
+  border-bottom-left-radius: 10px;
   @media (max-width: ${(props) => props.theme.tabletScreen}) {
     min-width: 320px;
   }
   &:hover {
-    box-shadow: 1px 1px 11px 1px rgba(191, 121, 48, 0.75);
+    box-shadow: 1px 1px 11px 1px rgba(191, 121, 48, 0.55);
   }
+`;
+const DescriptionCover = styled.div`
+  margin-left: 15px;
+`;
+
+const Name = styled.h3`
+  font-size: 22px;
+  font-weight: bold;
+  margin: 10px 0;
+`;
+
+const Status = styled.p`
+  font-size: 12px;
+  margin: 0;
+  margin-bottom: 10px;
 `;
 
 const RestaurantCard: React.FC<Props> = ({ restaurant, width }) => {
@@ -61,8 +76,10 @@ const RestaurantCard: React.FC<Props> = ({ restaurant, width }) => {
         resolutionY={32}
         punch={1}
       />
-      <p>{name}</p>
-      <p>{online ? "online" : "offline"}</p>
+      <DescriptionCover>
+        <Name>{name}</Name>
+        <Status>{online ? "online" : "offline"}</Status>
+      </DescriptionCover>
     </Card>
   );
 };
