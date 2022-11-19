@@ -16,6 +16,9 @@ const Card = styled.div`
   @media (max-width: ${(props) => props.theme.tabletScreen}) {
     min-width: 320px;
   }
+  &:hover {
+    box-shadow: 1px 1px 11px 1px rgba(191, 121, 48, 0.75);
+  }
 `;
 
 const RestaurantCard: React.FC<Props> = ({ restaurant, width }) => {
