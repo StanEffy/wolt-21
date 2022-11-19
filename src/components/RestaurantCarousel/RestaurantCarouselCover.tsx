@@ -5,6 +5,7 @@ import styled from "styled-components";
 import ButtonScroll from "../Button/Button__Scroll";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import { resetMaxSlides, sliceRestaurants } from "./utils";
+import { log } from "util";
 
 const CarouselHeader = styled.h1`
   font-size: 2rem;
@@ -27,13 +28,13 @@ const RestaurantCarouselCover: React.FC<IRestaurantsArray> = ({
   const { width } = useWindowDimensions();
   const [maxSlides, setMaxSlides] = useState(1);
   const [activeSlide, setActiveSlide] = useState(0);
+  const lastElement = restaurants.length - 1;
 
   const [slicedRestaurants, setSlicedRestaurants] = useState<
     [] | IRestaurant[]
   >([]);
 
   useEffect(() => {
-    console.log("it is active as well");
     resetMaxSlides(width, maxSlides, setMaxSlides);
 
     setSlicedRestaurants((prev) =>
@@ -48,7 +49,7 @@ const RestaurantCarouselCover: React.FC<IRestaurantsArray> = ({
   }, [activeSlide, maxSlides]);
 
   const handleIncreaseActiveSlide = () => {
-    if (activeSlide + 1 == restaurants.length) {
+    if (activeSlide + 1 === restaurants.length - 1) {
       setActiveSlide(0);
     } else {
       setActiveSlide((prev) => prev + 1);
@@ -56,7 +57,9 @@ const RestaurantCarouselCover: React.FC<IRestaurantsArray> = ({
   };
   const handleDecreaseActiveSlide = () => {
     if (activeSlide - 1 < 0) {
-      setActiveSlide(restaurants.length - 1);
+      console.log(lastElement);
+      setActiveSlide((prev) => (prev = lastElement));
+      console.log("new active slide is " + activeSlide);
     } else {
       setActiveSlide((prev) => prev - 1);
     }

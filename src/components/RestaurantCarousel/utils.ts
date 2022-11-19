@@ -13,17 +13,16 @@ export const sliceRestaurants = (
   if (arr.length < limit) return arr;
 
   //This is the first time I've ever used d0 while loop in some project, lol
-
+  console.log("THIS IS ACTIVE FROM UTILS " + active, limit, arr.length);
   do {
     if (current < arr.length - 1) {
       res.push(arr[current]);
       current++;
     } else {
       if (current === arr.length - 1) {
+        res.push(arr[current]);
         current = 0;
       }
-      res.push(arr[current]);
-      current++;
     }
   } while (res.length < limit);
   return res;
