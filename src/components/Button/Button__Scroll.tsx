@@ -40,12 +40,15 @@ const ArrowLeft = styled(Arrow)`
 const ButtonScroll = ({
   direction,
   visibility = true,
+  onClick,
 }: {
   direction: "left" | "right";
   visibility: boolean;
+  onClick: () => void;
 }) => {
   return (
     <ButtonBlock
+      onClick={() => onClick()}
       style={{
         right: direction === "right" ? 0 : "auto",
         left: direction === "left" ? 0 : "auto",

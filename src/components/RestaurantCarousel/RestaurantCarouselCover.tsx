@@ -4,7 +4,7 @@ import { IRestaurant, IRestaurantsArray } from "../../../types";
 import styled from "styled-components";
 import ButtonScroll from "../Button/Button__Scroll";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
-import { sliceRestaurants } from "./utils";
+import { resetMaxSlides, sliceRestaurants } from "./utils";
 
 const CarouselHeader = styled.h1`
   font-size: 2rem;
@@ -33,29 +33,34 @@ const RestaurantCarouselCover: React.FC<IRestaurantsArray> = ({
   >([]);
 
   useEffect(() => {
-    if (width > 1024) {
-      if (maxSlides !== 2) {
-        setMaxSlides(5);
-      }
-    } else if (width > 820) {
-      if (maxSlides !== 4) {
-        setMaxSlides(4);
-      }
-    } else if (width > 768) {
-      if (maxSlides !== 3) {
-        setMaxSlides(3);
-      }
-    } else if (width > 480) {
-      if (maxSlides !== 2) {
-        setMaxSlides(2);
-      }
-    }
+    console.log("it is active as well");
+    resetMaxSlides(width, maxSlides, setMaxSlides);
 
-    console.log(maxSlides);
     setSlicedRestaurants((prev) =>
       sliceRestaurants(restaurants, maxSlides, activeSlide)
     );
   }, [width]);
+
+  useEffect(() => {
+    setSlicedRestaurants((prev) =>
+      sliceRestaurants(restaurants, maxSlides, activeSlide)
+    );
+  }, [activeSlide, maxSlides]);
+
+  const handleIncreaseActiveSlide = () => {
+    if (activeSlide + 1 == restaurants.length) {
+      setActiveSlide(0);
+    } else {
+      setActiveSlide((prev) => prev + 1);
+    }
+  };
+  const handleDecreaseActiveSlide = () => {
+    if (activeSlide - 1 < 0) {
+      setActiveSlide(restaurants.length - 1);
+    } else {
+      setActiveSlide((prev) => prev - 1);
+    }
+  };
 
   return (
     <section>
@@ -64,11 +69,13 @@ const RestaurantCarouselCover: React.FC<IRestaurantsArray> = ({
         <ButtonScroll
           direction={"left"}
           visibility={!(maxSlides >= restaurants.length)}
+          onClick={handleDecreaseActiveSlide}
         />
         <RestaurantCarousel restaurants={slicedRestaurants} width={width} />
         <ButtonScroll
           direction={"right"}
           visibility={!(maxSlides >= restaurants.length)}
+          onClick={handleIncreaseActiveSlide}
         />
       </CarouselCover>
     </section>
