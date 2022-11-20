@@ -57,9 +57,7 @@ const RestaurantCarouselCover: React.FC<IRestaurantsArray> = ({
   };
   const handleDecreaseActiveSlide = () => {
     if (activeSlide - 1 < 0) {
-      console.log(lastElement);
       setActiveSlide((prev) => (prev = lastElement));
-      console.log("new active slide is " + activeSlide);
     } else {
       setActiveSlide((prev) => prev - 1);
     }

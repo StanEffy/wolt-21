@@ -28,6 +28,8 @@ const Name = styled.h3`
   font-size: 22px;
   font-weight: bold;
   margin: 10px 0;
+  //to avoid jump of the header when header is a two-liner
+  min-height: 54px;
 `;
 
 const Status = styled.p`
