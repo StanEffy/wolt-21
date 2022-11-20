@@ -1,4 +1,7 @@
-const useDebounce = (callback, delay) => {
+// @ts-nocheck
+import { useEffect, useRef } from "react";
+
+export const useDebounce = (callback, delay = 150) => {
   const latestCallback = useRef();
   const latestTimeout = useRef();
 

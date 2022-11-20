@@ -29,7 +29,9 @@ const RestaurantCarouselCover: React.FC<IRestaurantsArray> = ({
   const [activeSlide, setActiveSlide] = useState(0);
   const lastElement = restaurants.length - 1;
 
-  const [slicedRestaurants, setSlicedRestaurants] = useState<[] | string[]>([]);
+  const [slicedRestaurants, setSlicedRestaurants] = useState<
+    [] | IRestaurant[]
+  >([]);
 
   useEffect(() => {
     resetMaxSlides(width, maxSlides, setMaxSlides);
@@ -69,11 +71,7 @@ const RestaurantCarouselCover: React.FC<IRestaurantsArray> = ({
           visibility={!(maxSlides >= restaurants.length)}
           onClick={handleDecreaseActiveSlide}
         />
-        <RestaurantCarousel
-          visibleRestaurants={slicedRestaurants}
-          restaurants={restaurants}
-          width={width}
-        />
+        <RestaurantCarousel restaurants={slicedRestaurants} width={width} />
         <ButtonScroll
           direction={"right"}
           visibility={!(maxSlides >= restaurants.length)}

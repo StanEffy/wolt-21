@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useDebounce } from "../../hooks/useDebounce";
 
 const ButtonBlock = styled.button`
   position: absolute;
@@ -46,9 +47,10 @@ const ButtonScroll = ({
   visibility: boolean;
   onClick: () => void;
 }) => {
+  const handleClick = useDebounce(onClick);
   return (
     <ButtonBlock
-      onClick={() => onClick()}
+      onClick={() => handleClick()}
       style={{
         right: direction === "right" ? 0 : "auto",
         left: direction === "left" ? 0 : "auto",
