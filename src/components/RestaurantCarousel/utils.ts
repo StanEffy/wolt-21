@@ -6,21 +6,21 @@ export const sliceRestaurants = (
   arr: IRestaurant[],
   limit: number,
   active: number
-): IRestaurant[] => {
+): string[] => {
   const res = [];
   let current = active;
 
-  if (arr.length < limit) return arr;
+  if (arr.length < limit) return arr.map((r) => r.name);
 
   //This is the first time I've ever used d0 while loop in some project, lol
   console.log("THIS IS ACTIVE FROM UTILS " + active, limit, arr.length);
   do {
     if (current < arr.length - 1) {
-      res.push(arr[current]);
+      res.push(arr[current].name);
       current++;
     } else {
       if (current === arr.length - 1) {
-        res.push(arr[current]);
+        res.push(arr[current].name);
         current = 0;
       }
     }

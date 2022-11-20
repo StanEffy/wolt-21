@@ -7,6 +7,7 @@ import useWindowDimensions from "../../hooks/useWindowDimensions";
 type Props = {
   restaurant: IRestaurant;
   width: number;
+  display: "block" | "none";
 };
 
 const Card = styled.div`
@@ -38,7 +39,7 @@ const Status = styled.p`
   margin-bottom: 10px;
 `;
 
-const RestaurantCard: React.FC<Props> = ({ restaurant, width }) => {
+const RestaurantCard: React.FC<Props> = ({ restaurant, width, display }) => {
   const { blurhash, launch_date, location, name, online, popularity } =
     restaurant;
 
@@ -69,7 +70,7 @@ const RestaurantCard: React.FC<Props> = ({ restaurant, width }) => {
   }, [width]);
 
   return (
-    <Card style={{ width: `${size}px` }}>
+    <Card style={{ width: `${size}px`, display }}>
       <Blurhash
         hash={blurhash}
         width={size}

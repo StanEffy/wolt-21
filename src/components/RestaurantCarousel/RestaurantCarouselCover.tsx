@@ -5,7 +5,6 @@ import styled from "styled-components";
 import ButtonScroll from "../Button/Button__Scroll";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import { resetMaxSlides, sliceRestaurants } from "./utils";
-import { log } from "util";
 
 const CarouselHeader = styled.h1`
   font-size: 2rem;
@@ -30,9 +29,7 @@ const RestaurantCarouselCover: React.FC<IRestaurantsArray> = ({
   const [activeSlide, setActiveSlide] = useState(0);
   const lastElement = restaurants.length - 1;
 
-  const [slicedRestaurants, setSlicedRestaurants] = useState<
-    [] | IRestaurant[]
-  >([]);
+  const [slicedRestaurants, setSlicedRestaurants] = useState<[] | string[]>([]);
 
   useEffect(() => {
     resetMaxSlides(width, maxSlides, setMaxSlides);
@@ -72,7 +69,11 @@ const RestaurantCarouselCover: React.FC<IRestaurantsArray> = ({
           visibility={!(maxSlides >= restaurants.length)}
           onClick={handleDecreaseActiveSlide}
         />
-        <RestaurantCarousel restaurants={slicedRestaurants} width={width} />
+        <RestaurantCarousel
+          visibleRestaurants={slicedRestaurants}
+          restaurants={restaurants}
+          width={width}
+        />
         <ButtonScroll
           direction={"right"}
           visibility={!(maxSlides >= restaurants.length)}
