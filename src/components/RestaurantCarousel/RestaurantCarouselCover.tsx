@@ -51,7 +51,7 @@ const RestaurantCarouselCover: React.FC<IRestaurantsArray> = ({
   }, [activeSlide, maxSlides]);
 
   const handleIncreaseActiveSlide = () => {
-    if (activeSlide + 1 === restaurants.length - 1) {
+    if (activeSlide === restaurants.length - 1) {
       setActiveSlide(0);
     } else {
       setActiveSlide((prev) => prev + 1);
