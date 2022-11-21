@@ -12,6 +12,7 @@ const CarouselHeader = styled.h1`
 const CarouselCover = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
   position: relative;
   max-width: 100%;
   box-sizing: border-box;
@@ -25,8 +26,10 @@ const RestaurantCarouselCover: React.FC<IRestaurantsArray> = ({
   restaurants,
 }) => {
   const { width } = useWindowDimensions();
+  const [cardHeight, setCardHeight] = useState(230);
   const [maxSlides, setMaxSlides] = useState(1);
   const [activeSlide, setActiveSlide] = useState(0);
+
   const lastElement = restaurants.length - 1;
 
   const [slicedRestaurants, setSlicedRestaurants] = useState<
@@ -34,7 +37,7 @@ const RestaurantCarouselCover: React.FC<IRestaurantsArray> = ({
   >([]);
 
   useEffect(() => {
-    resetMaxSlides(width, maxSlides, setMaxSlides);
+    resetMaxSlides(width, maxSlides, setMaxSlides, setCardHeight);
 
     setSlicedRestaurants((prev) =>
       sliceRestaurants(restaurants, maxSlides, activeSlide)
@@ -65,7 +68,7 @@ const RestaurantCarouselCover: React.FC<IRestaurantsArray> = ({
   return (
     <section>
       <CarouselHeader>{title}</CarouselHeader>
-      <CarouselCover>
+      <CarouselCover style={{ minHeight: `${cardHeight}px` }}>
         <ButtonScroll
           direction={"left"}
           visibility={!(maxSlides >= restaurants.length)}

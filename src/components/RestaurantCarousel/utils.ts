@@ -23,37 +23,45 @@ export const sliceRestaurants = (
       current++;
     } else {
       if (current === arr.length - 1) {
-        res.unshift(arr[current]);
+        res.push(arr[current]);
         indexes.push(current);
         current = 0;
       }
     }
   } while (res.length < limit);
-
-  console.log(res);
+  // console.log(indexes);
+  // console.log(res);
   return res;
 };
 
 export const resetMaxSlides = (
   width: number,
   maxSlides: number,
-  setMaxSlides: (n: number) => void
+  setMaxSlides: (n: number) => void,
+  setHeight: (n: number) => void
 ) => {
   if (width > 1024) {
-    if (maxSlides !== 2) {
+    if (maxSlides !== 5) {
       setMaxSlides(5);
+      setHeight(215);
     }
   } else if (width > 820) {
     if (maxSlides !== 4) {
       setMaxSlides(4);
+      setHeight(228);
     }
   } else if (width > 768) {
     if (maxSlides !== 3) {
       setMaxSlides(3);
+      setHeight(221);
     }
   } else if (width > 480) {
     if (maxSlides !== 2) {
       setMaxSlides(2);
+      setHeight(228);
     }
+  } else if (width < 480) {
+    setMaxSlides(1);
+    setHeight(283);
   }
 };

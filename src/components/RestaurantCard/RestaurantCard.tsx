@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Blurhash } from "react-blurhash";
 import { IRestaurant } from "../../../types";
 import styled from "styled-components";
+import "./main.css";
 
 type Props = {
   restaurant: IRestaurant;
@@ -12,6 +13,7 @@ const Card = styled.div`
   max-width: ${(props) => props.theme.tabletScreen};
   box-shadow: 1px 1px 11px 1px rgba(191, 121, 48, 0.15);
   border-bottom-left-radius: 10px;
+
   @media (max-width: ${(props) => props.theme.tabletScreen}) {
     min-width: 320px;
   }
@@ -68,7 +70,7 @@ const RestaurantCard: React.FC<Props> = ({ restaurant, width }) => {
   }, [width]);
 
   return (
-    <Card style={{ width: `${size}px` }}>
+    <Card style={{ width: `${size}px` }} className={"slide"}>
       <Blurhash
         hash={blurhash}
         width={size}
