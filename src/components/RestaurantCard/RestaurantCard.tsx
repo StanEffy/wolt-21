@@ -33,10 +33,11 @@ const Name = styled.h3`
   min-height: 54px;
 `;
 
-const Status = styled.p`
+const Status = styled.p<{ status: boolean }>`
   font-size: 12px;
   margin: 0;
   margin-bottom: 10px;
+  color: ${(props) => (props.status ? "green" : "red")};
 `;
 
 const RestaurantCard: React.FC<Props> = ({ restaurant, width }) => {
@@ -81,7 +82,7 @@ const RestaurantCard: React.FC<Props> = ({ restaurant, width }) => {
       />
       <DescriptionCover>
         <Name>{name}</Name>
-        <Status>{online ? "online" : "offline"}</Status>
+        <Status status={online}>{online ? "online" : "offline"}</Status>
       </DescriptionCover>
     </Card>
   );
