@@ -198,6 +198,7 @@ function App() {
         <p>Initial screen</p>
         {restaurants.map((r) => (
           <RestaurantCarouselCover
+            key={r.title}
             title={r.title}
             restaurants={r.restaurants}
           />

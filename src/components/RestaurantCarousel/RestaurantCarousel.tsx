@@ -5,14 +5,16 @@ import { IRestaurant } from "../../../types";
 const RestaurantCarousel = ({
   restaurants,
   width,
+  title,
 }: {
   restaurants: IRestaurant[];
   width: number;
+  title: string;
 }) => {
   return (
     <>
       {restaurants.map((r, i) => (
-        <RestaurantCard key={r.name} restaurant={r} width={width} />
+        <RestaurantCard key={r.name + title} restaurant={r} width={width} />
       ))}
     </>
   );

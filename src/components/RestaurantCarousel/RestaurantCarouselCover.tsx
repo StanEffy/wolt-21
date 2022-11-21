@@ -74,7 +74,11 @@ const RestaurantCarouselCover: React.FC<IRestaurantsArray> = ({
           visibility={!(maxSlides >= restaurants.length)}
           onClick={handleDecreaseActiveSlide}
         />
-        <RestaurantCarousel restaurants={slicedRestaurants} width={width} />
+        <RestaurantCarousel
+          title={title}
+          restaurants={slicedRestaurants}
+          width={width}
+        />
         <ButtonScroll
           direction={"right"}
           visibility={!(maxSlides >= restaurants.length)}
