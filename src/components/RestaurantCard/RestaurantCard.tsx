@@ -9,16 +9,19 @@ type Props = {
   width: number;
 };
 
-const Card = styled.div`
+const Card = styled.div<{ status: boolean }>`
   max-width: ${(props) => props.theme.tabletScreen};
   box-shadow: 1px 1px 11px 1px rgba(191, 121, 48, 0.15);
   border-bottom-left-radius: 10px;
+  filter: ${(props) => (props.status ? "none" : "grayscale(1)")};
 
   @media (max-width: ${(props) => props.theme.tabletScreen}) {
     min-width: 320px;
   }
+
   &:hover {
     box-shadow: 1px 1px 11px 1px rgba(191, 121, 48, 0.55);
+    filter: none;
   }
 `;
 const DescriptionCover = styled.div`
@@ -38,6 +41,7 @@ const Status = styled.p<{ status: boolean }>`
   margin: 0;
   margin-bottom: 10px;
   color: ${(props) => (props.status ? "green" : "red")};
+  font-weight: ${(props) => (props.status ? "normal" : "bold")};
 `;
 
 const RestaurantCard: React.FC<Props> = ({ restaurant, width }) => {
@@ -71,7 +75,7 @@ const RestaurantCard: React.FC<Props> = ({ restaurant, width }) => {
   }, [width]);
 
   return (
-    <Card style={{ width: `${size}px` }} className={"slide"}>
+    <Card status={online} style={{ width: `${size}px` }} className={"slide"}>
       <Blurhash
         hash={blurhash}
         width={size}
