@@ -12,10 +12,12 @@ function App() {
     activeRest: IRestaurant | null;
     setActive: (rest: IRestaurant) => void;
   } | null>(null);
-  const [activeRest, setActiveRest] = useState(null);
+  const [activeRest, setActiveRest] = useState<IRestaurant | null>(null);
+
   const setActive = (rest: IRestaurant) => {
     setActiveRest(rest);
   };
+
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
