@@ -55,6 +55,11 @@ const RestaurantCard: React.FC<Props> = ({ restaurant, width }) => {
 
   const [size, setSize] = useState(210);
 
+  const handleClick = () => {
+    navigate(`/${name}`);
+    context.setActive(restaurant);
+  };
+
   useEffect(() => {
     if (width < 480) {
       if (size !== 320) {
@@ -84,7 +89,7 @@ const RestaurantCard: React.FC<Props> = ({ restaurant, width }) => {
       status={online}
       style={{ width: `${size}px` }}
       className={"slide"}
-      onClick={() => context.setActive(restaurant)}
+      onClick={() => handleClick()}
     >
       <Blurhash
         hash={blurhash}

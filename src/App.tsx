@@ -1,7 +1,7 @@
 import React, { createContext, Dispatch, useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./theme";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import { restaurants } from "./restaurantsData";
 import SingleRestaurant from "./pages/SingleRestaurant/SingleRestaurant";
@@ -11,7 +11,7 @@ import { RestaurantContext } from "./RestaurantContext";
 function App() {
   const [activeRest, setActiveRest] = useState<IRestaurant | null>(null);
 
-  const setActive = (rest: IRestaurant) => {
+  const setActive = (rest: IRestaurant | null) => {
     setActiveRest(rest);
   };
 
