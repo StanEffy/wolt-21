@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Blurhash } from "react-blurhash";
 import { IRestaurant } from "../../../types";
 import styled from "styled-components";
 import "./main.css";
+import { RestaurantContext } from "../../RestaurantContext";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   restaurant: IRestaurant;
@@ -48,6 +50,9 @@ const RestaurantCard: React.FC<Props> = ({ restaurant, width }) => {
   const { blurhash, launch_date, location, name, online, popularity } =
     restaurant;
 
+  const context = useContext(RestaurantContext);
+  const navigate = useNavigate();
+
   const [size, setSize] = useState(210);
 
   useEffect(() => {
@@ -75,7 +80,12 @@ const RestaurantCard: React.FC<Props> = ({ restaurant, width }) => {
   }, [width]);
 
   return (
-    <Card status={online} style={{ width: `${size}px` }} className={"slide"}>
+    <Card
+      status={online}
+      style={{ width: `${size}px` }}
+      className={"slide"}
+      onClick={() => context.setActive(restaurant)}
+    >
       <Blurhash
         hash={blurhash}
         width={size}

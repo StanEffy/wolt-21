@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import RestaurantCarousel from "./RestaurantCarousel";
 import { IRestaurant, IRestaurantsArray } from "../../../types";
 import styled from "styled-components";
 import ButtonScroll from "../Button/Button__Scroll";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import { resetMaxSlides, sliceRestaurants } from "./utils";
+import { RestaurantContext } from "../../RestaurantContext";
 
 const CarouselHeader = styled.h1`
   font-size: 2rem;

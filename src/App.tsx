@@ -6,12 +6,9 @@ import Home from "./pages/Home/Home";
 import { restaurants } from "./restaurantsData";
 import SingleRestaurant from "./pages/SingleRestaurant/SingleRestaurant";
 import { IRestaurant } from "../types";
+import { RestaurantContext } from "./RestaurantContext";
 
 function App() {
-  const RestaurantContext = createContext<{
-    activeRest: IRestaurant | null;
-    setActive: (rest: IRestaurant) => void;
-  } | null>(null);
   const [activeRest, setActiveRest] = useState<IRestaurant | null>(null);
 
   const setActive = (rest: IRestaurant) => {
