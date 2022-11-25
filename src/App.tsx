@@ -17,6 +17,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Restaurants</h1>
       <ThemeProvider theme={theme}>
         <RestaurantContext.Provider value={{ activeRest, setActive }}>
           <Router>
