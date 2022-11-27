@@ -1,6 +1,7 @@
 // @ts-nocheck
 import React from "react";
 import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import Restaurant from "./pages/SingleRestaurant/SingleRestaurant";
 import { BrowserRouter as Router } from "react-router-dom";
 import { RestaurantContext } from "./RestaurantContext";
@@ -28,7 +29,7 @@ const restaurantMock = {
 
 const func = () => {};
 
-test("actual restaurant is there", async () => {
+test("actual restaurant header is displayed is there", async () => {
   render(
     <Router>
       <RestaurantContext.Provider
@@ -39,8 +40,6 @@ test("actual restaurant is there", async () => {
     </Router>
   );
 
-  const restaurantHeader = screen.getByText(
-    /There is no restaurant like the one you were looking for/i
-  );
+  const restaurantHeader = screen.getByText(/Sea Chain/i);
   expect(restaurantHeader).toBeInTheDocument();
 });

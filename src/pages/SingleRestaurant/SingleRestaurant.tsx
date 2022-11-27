@@ -21,14 +21,14 @@ const SingleRestaurant = () => {
       ) : (
         <div>
           <div style={{ maxWidth: "480px" }}>
-            <Blurhash
-              hash={activeRest.blurhash}
-              width={"100%"}
-              height={Math.floor((480 / 16) * 9)}
-              resolutionX={32}
-              resolutionY={32}
-              punch={1}
-            />
+            {/*<Blurhash*/}
+            {/*  hash={activeRest.blurhash}*/}
+            {/*  width={"100%"}*/}
+            {/*  height={Math.floor((480 / 16) * 9)}*/}
+            {/*  resolutionX={32}*/}
+            {/*  resolutionY={32}*/}
+            {/*  punch={1}*/}
+            {/*/>*/}
           </div>
           <h2>{activeRest.name}</h2>
           <p>{activeRest.online ? "online" : "offline"}</p>
