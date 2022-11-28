@@ -39,16 +39,16 @@ const RestaurantCarouselCover: React.FC<IRestaurantsArray> = ({
   useEffect(() => {
     resetMaxSlides(width, maxSlides, setMaxSlides, setCardHeight);
 
-    setSlicedRestaurants((prev) =>
+    setSlicedRestaurants(() =>
       sliceRestaurants(restaurants, maxSlides, activeSlide)
     );
-  }, [width]);
+  }, [activeSlide, maxSlides, restaurants, width]);
 
   useEffect(() => {
-    setSlicedRestaurants((prev) =>
+    setSlicedRestaurants(() =>
       sliceRestaurants(restaurants, maxSlides, activeSlide)
     );
-  }, [activeSlide, maxSlides]);
+  }, [restaurants, activeSlide, maxSlides]);
 
   const handleIncreaseActiveSlide = () => {
     if (activeSlide === restaurants.length - 1) {
@@ -59,7 +59,7 @@ const RestaurantCarouselCover: React.FC<IRestaurantsArray> = ({
   };
   const handleDecreaseActiveSlide = () => {
     if (activeSlide - 1 < 0) {
-      setActiveSlide((prev) => (prev = lastElement));
+      setActiveSlide(() => lastElement);
     } else {
       setActiveSlide((prev) => prev - 1);
     }

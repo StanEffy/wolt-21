@@ -47,8 +47,7 @@ const Status = styled.p<{ status: boolean }>`
 `;
 
 const RestaurantCard: React.FC<Props> = ({ restaurant, width }) => {
-  const { blurhash, launch_date, location, name, online, popularity } =
-    restaurant;
+  const { blurhash, name, online } = restaurant;
 
   const context = useContext(RestaurantContext);
   const navigate = useNavigate();
@@ -82,7 +81,7 @@ const RestaurantCard: React.FC<Props> = ({ restaurant, width }) => {
         setSize(230);
       }
     }
-  }, [width]);
+  }, [width, size]);
 
   return (
     <Card

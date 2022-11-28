@@ -1,4 +1,4 @@
-import React, { createContext, Dispatch, useState } from "react";
+import React, { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./theme";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
