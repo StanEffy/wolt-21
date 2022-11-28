@@ -1,3 +1,29 @@
+## Instructions
+
+Here you can see a task I've done just to try it. 
+The stack is very simple: React + styled-components + native context to operate with some kind of state.
+Tests are made with react-testing-linrary which uses jest under the hood. 
+
+## How to start?
+Clone the repo to your local machine and then use command 
+
+**npm i**
+
+**npm run start**
+
+Then you can find the app running on port 3000 of your localhost, but most probably by this time it has benn already opened.
+
+### How to test?
+
+You canfound tests in coverage folder. If you want to run them just type 
+
+**npm run test**
+
+and se the outcome.
+
+**!! ATTENTION !!** Tests are failing because of the problems with blurhash inside tests. Visually it is all good and i decided not to spend time on testing the actual template, especially when manually it is working perfectly fine. So you can simply comment out the blurhash elements and see tha evetything is greener than the Earth without humans.  
+
+
 # Wolt Summer 2021 Internships
 
 **Preliminary Assignment for Engineering Positions**
