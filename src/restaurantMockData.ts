@@ -1,0 +1,42 @@
+export const restaurantMockData = [
+  {
+    blurhash: "UAN=8k?LS~M:ErJFs%t0MDMWRqo@%BxSV{RX",
+    launch_date: "2020-04-20",
+    location: [24.938082, 60.17626],
+    name: "Sea Chain",
+    online: true,
+    popularity: 0.956990414084132,
+  },
+  {
+    blurhash: "UDSoswyZVqm.p%cRjLaKUgZ+k.kWrFZ%a$kX",
+    launch_date: "2020-11-26",
+    location: [24.938908, 60.160413],
+    name: "Salt",
+    online: true,
+    popularity: 0.8954324472876662,
+  },
+  {
+    blurhash: "UDSYr*v7X%kVq0cOi%etTca$nibqr4a8bqk7",
+    launch_date: "2020-01-05",
+    location: [24.930132, 60.152363],
+    name: "Fake Tomato Mafia",
+    online: true,
+    popularity: 0.7953685298092403,
+  },
+  {
+    blurhash: "UKNaZ$xnRXaQO5WEt2f7DfRpo?k8MptKV}ou",
+    launch_date: "2020-03-14",
+    location: [24.924752, 60.179213],
+    name: "Charming Pepper Emporium",
+    online: true,
+    popularity: 0.741748846018373,
+  },
+  {
+    blurhash: "ULFgVE}sE3bvGNORnUj=A1JCoaniMUj0tMS5",
+    launch_date: "2020-09-24",
+    location: [24.936465, 60.178633],
+    name: "Loving Meat Basket",
+    online: true,
+    popularity: 0.7400471016913404,
+  },
+];
