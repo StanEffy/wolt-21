@@ -2,9 +2,9 @@
 
 Here you can see a task I've done just to try it. 
 The stack is very simple: React + styled-components + native context to operate with some kind of state.
-Tests are made with react-testing-linrary which uses jest under the hood. 
+Tests are made with react-testing-library which uses jest under the hood. 
 
-## How to start?
+## How to start
 Clone the repo to your local machine and then use command 
 
 **npm i**
