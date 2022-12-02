@@ -21,7 +21,7 @@ You can find tests in coverage folder. If you want to run them just type
 
 and se the outcome.
 
-**!! ATTENTION !!** Tests are failing because of the problems with blurhash inside tests. Visually it is all good and i decided not to spend time on testing the actual template, especially when manually it is working perfectly fine. So you can simply comment out the blurhash elements and see tha evetything is greener than the Earth without humans.  
+**!! ATTENTION !!** Tests are failing because of the problems with blurhash inside tests. Visually it is all good and i decided not to spend time on testing the actual template, especially when manually it is working perfectly fine. So you can simply comment out the blurhash elements and see tha everything is greener than the Earth without humans.  
 
 
 # Wolt Summer 2021 Internships
