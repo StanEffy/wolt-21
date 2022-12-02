@@ -15,7 +15,7 @@ Then you can find the app running on port 3000 of your localhost, but most proba
 
 ### How to test?
 
-You canfound tests in coverage folder. If you want to run them just type 
+You can find tests in coverage folder. If you want to run them just type 
 
 **npm run test**
 
